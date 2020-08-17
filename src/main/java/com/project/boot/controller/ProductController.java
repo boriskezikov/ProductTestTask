@@ -47,7 +47,7 @@ public class ProductController {
         return service.update(productDTO);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void deleteProductById(@PathVariable BigInteger id) {
         service.deleteById(id);
     }
