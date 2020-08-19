@@ -25,12 +25,15 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "products_ids_gen")
-    @SequenceGenerator(name = "products_ids_gen", sequenceName = "user_settings_id_seq", allocationSize = 1)
+    @SequenceGenerator(name = "products_ids_gen", sequenceName = "products_id_seq", allocationSize = 1)
     private BigInteger id;
+
     @Column(nullable = false)
     private String productName;
+
     @Column(nullable = false)
     private BigDecimal price;
+
     @Column(nullable = false)
     private Timestamp date;
 
