@@ -38,11 +38,13 @@ public class ProductController {
     }
 
     @PostMapping
+    @RequestBody 
     public Product createProduct(@Validated CreateProductDTO productDTO) {
         return service.createProduct(productDTO);
     }
 
     @PutMapping
+    @RequestBody 
     public List<Product> update(@Validated UpdateProductDTO productDTO) {
         return service.update(productDTO);
     }
