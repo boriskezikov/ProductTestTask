@@ -45,15 +45,15 @@ public class ProductService {
         if (request.getProducts().isEmpty()) {
             return Collections.emptyList();
         }
-        List<Product> processedProducts = request.getProducts().stream().map(dto -> {
-            Product storedProduct = repository.findById(dto.getId())
-                    .orElseThrow(() -> new EntityNotFoundException(
-                            String.format("Product with id: %s not found!", dto.getId())));
-            return mapper.map(storedProduct, dto);
-        }).collect(toList());
+        List<Product> processedProducts = request.getProducts().stream()
+                .map(dto -> {
+                    Product storedProduct = repository.findById(dto.getId())
+                            .orElseThrow(() -> new EntityNotFoundException(
+                                    String.format("Product with id: %s not found!", dto.getId())));
+                    return mapper.map(storedProduct, dto);
+                }).collect(toList());
         return repository.saveAll(processedProducts);
     }
-
 
     public void deleteById(BigInteger id) {
         repository.deleteById(id);

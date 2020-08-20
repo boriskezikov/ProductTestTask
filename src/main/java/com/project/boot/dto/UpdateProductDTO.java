@@ -29,5 +29,4 @@ public class UpdateProductDTO {
         private String productName;
         private BigDecimal price;
     }
-
 }

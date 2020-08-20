@@ -25,5 +25,4 @@ public class GlobalExceptionHandler {
     protected ErrorDto handleApiException(EntityNotFoundException ex) {
         return new ErrorDto(404, ex.getMessage());
     }
-
 }

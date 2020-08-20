@@ -18,18 +18,7 @@ public class Mapper {
 
     private final ModelMapper mapper;
 
-    public Product map(ProductDTO dto) {
-        var entity = mapper.map(dto, Product.class);
-        entity.setDate(Timestamp.valueOf(now()));
-        return entity;
-    }
-
-    public Product map(CreateProductDTO dto){
-        var entity = mapper.map(dto, Product.class);
-        entity.setDate(Timestamp.valueOf(now()));
-        return entity;
-    }
-    public Product map(UpdateProductDTO dto){
+    public Product map(CreateProductDTO dto) {
         var entity = mapper.map(dto, Product.class);
         entity.setDate(Timestamp.valueOf(now()));
         return entity;
@@ -40,7 +29,6 @@ public class Mapper {
     }
 
     public Product map(Product dao, UpdateProductDTO.ProductDTO dto) {
-
         mapper.map(dto, dao);
         return dao;
     }

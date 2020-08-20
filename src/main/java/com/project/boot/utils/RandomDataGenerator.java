@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Stream;
 
 import static java.time.LocalDateTime.now;
@@ -27,7 +27,7 @@ public class RandomDataGenerator {
             return min;
         }
         int diff = max - min;
-        int random = new Random().nextInt(diff + 1);
+        int random = ThreadLocalRandom.current().nextInt(diff + 1);
         return random + min;
     }
 
@@ -39,11 +39,11 @@ public class RandomDataGenerator {
                 .build();
     }
 
-    private static int getRandomPrice() {
+    private int getRandomPrice() {
         return getRandomInt(10, 100);
     }
 
-    private static String getRandomString() {
+    private String getRandomString() {
         return RandomStringUtils.random(10, true, false);
     }
 
@@ -52,8 +52,4 @@ public class RandomDataGenerator {
                 .limit(count)
                 .forEach(repository::save);
     }
-
-
-
-
 }
