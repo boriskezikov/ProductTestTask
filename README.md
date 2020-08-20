@@ -6,6 +6,6 @@ To start up the app need to install docker/docker-compose and load Postgres imag
 0) Open terminal
 1) Navigate to root project package
 2) Execute "docker-compose build" -> wait untill end 
-3) Execute docker ps to ensure the container is up. 
+3) Run containers
 4) Open swagger-ui page. localhost:port/swagger-ui.html#/
 5) Profit!  :-)
